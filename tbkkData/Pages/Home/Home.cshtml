@@ -1,0 +1,584 @@
+﻿@page
+@model tbkkData.Pages.HomeModel
+@{
+    ViewData["Title"] = "Home page";
+}
+    <script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+    </script>
+
+@*<div id="content-wrapper">
+
+    <div class="container-fluid">
+        <h1 class="text text-center">General Information</h1><br />
+
+         ************Chart***************  
+
+        <div class="row">
+             Area Chart 
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="card text-dark bg-light o-hidden h-100">
+                    <div class="card-body">
+                        <div class="mr-5 ">
+                            <i class="fas fa-chart-area "></i>
+                            Area Chart
+                            <span style="float:right ">
+                                <b>
+                                     Button trigger modal 
+                                    <button type="button" class="material-icons" data-toggle="modal" data-target=".showChartArea">
+                                        <i class="fas fa-bars "></i>
+                                    </button>
+                                </b>
+                            </span>
+
+                              ******modal***** 
+                        </div><br />
+                        <div class="card mb-3 container-fluid">
+                            <div class="mr-5 ">
+                            </div><div class="card-body">
+                                <canvas id="myAreaChart1" width="100%" height="50"></canvas>
+                            </div>
+                        </div><br />
+                    </div>
+                </div>
+            </div>
+
+             Bar Chart 
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="card text-dark bg-light o-hidden h-100">
+                    <div class="card-body">
+                        <div class="mr-5 ">
+                            <i class="fas fa-chart-area "></i>
+                            Bar Chart
+                            <span style="float:right ">
+                                <b>
+                                     Button trigger modal 
+                                    <button type="button" class="material-icons" data-toggle="modal" data-target=".showBarArea">
+                                        <i class="fas fa-bars "></i>
+                                    </button>
+                                </b>
+                            </span>
+
+                              ******modal***** 
+                        </div><br />
+                        <div class="card mb-3 container-fluid">
+                            <div class="mr-5 ">
+                            </div><div class="card-body">
+                                <canvas id="myBarChart1" width="100%" height="50"></canvas>
+                            </div>
+                        </div><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+             *******Pie Chart**********  
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="card text-dark bg-light o-hidden h-100">
+                    <div class="card-body">
+                        <div class="mr-5 ">
+                            <i class="fas fa-chart-area "></i>
+                            Pie Char
+                            <span style="float:right ">
+                                <b>
+                                     Button trigger modal 
+                                    <button type="button" class="material-icons" data-toggle="modal" data-target=".showPieChart">
+                                        <i class="fas fa-bars "></i>
+                                    </button>
+                                </b>
+                            </span>
+
+                              ******modal***** 
+                        </div><br />
+                        <div class="card mb-3 container-fluid">
+                            <div class="mr-5 ">
+                            </div><div class="card-body">
+                                <canvas id="myPieChart" width="100%" height="50"></canvas>
+                            </div>
+                        </div><br />
+                    </div>
+                </div>
+            </div>
+
+             *******Doughnut Chart**********  
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="card text-dark bg-light o-hidden h-100">
+                    <div class="card-body">
+                        <div class="mr-5 ">
+                            <i class="fas fa-chart-area "></i>
+                            Doughnut Char
+                            <span style="float:right ">
+                                <b>
+                                     Button trigger modal 
+                                    <button type="button" class="material-icons" data-toggle="modal" data-target=".showDoughnutChart">
+                                        <i class="fas fa-bars "></i>
+                                    </button>
+                                </b>
+                            </span>
+
+                              ******modal***** 
+                        </div><br />
+                        <div class="card mb-3 container-fluid">
+                            <div class="mr-5 ">
+                            </div><div class="card-body">
+                                <canvas id="myDoughnutChart1" width="100%" height="50"></canvas>
+                            </div>
+                        </div><br />
+                    </div>
+                </div>
+            </div>
+
+        </div><br />
+
+        <div class="row">
+              *********** PolarArea Chart *************** 
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="card text-dark bg-light o-hidden h-100">
+                    <div class="card-body">
+                        <div class="mr-5 ">
+                            <i class="fas fa-chart-area "></i>
+                            PolarArea Chart
+                            <span style="float:right">
+                                <b>
+                                     Button trigger modal 
+                                    <button type="button" class="material-icons" data-toggle="modal" data-target=".showPolarAreaChart">
+                                        <i class="fas fa-bars "></i>
+                                    </button>
+                                </b>
+                            </span>
+                        </div><br />
+                        <div class="card mb-3 container-fluid">
+                            <br />
+                            <div class="card-body">
+                                <canvas id="mypolarAreaChart1" width="100%" height="30"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br />
+    </div>
+</div>
+
+
+ Scroll to Top Button
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+ Logout Modal
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+ modal area chart 
+<div class="modal fade showChartArea " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        model table data and graph
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Area Chart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-light " role="alert">
+                    <div class="card-body">
+                        <canvas id="myAreaChart" width="100%" height="50"></canvas>
+                    </div>
+                    <hr>
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">@DateTimeOffset.Now.DateTime</th>
+                                <td>
+                                    @{
+
+                                        var txt1 = "";
+                                        if (DateTime.Now.Hour > 12)
+                                        { txt1 = "Good E" + "vening"; }
+                                        else
+                                        { txt1 = "Good Morning"; }
+                                    }
+                                    @txt1
+                                </td>
+                                <td>
+                                    <p id="demo"></p>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ modal bar chart
+<div class="modal fade showBarArea " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        model table data and graph
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bar Chart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-light " role="alert">
+                    <div class="card-body">
+                        <canvas id="myBarChart" width="100%" height="50"></canvas>
+                    </div>
+                    <hr>
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ modal pie chart
+<div class="modal fade showPieChart " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        model table data and graph
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bar Chart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-light " role="alert">
+                    <div class="card-body">
+                        <canvas id="myPieChart1" width="100%" height="50"></canvas>
+                    </div>
+                    <hr>
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ modal doughnut chart
+<div class="modal fade showDoughnutChart " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        model table data and graph
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bar Chart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-light " role="alert">
+                    <div class="card-body">
+                        <canvas id="myDoughnutChart" width="100%" height="50"></canvas>
+                    </div>
+                    <hr>
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ modal PolarArea chart
+<div class="modal fade showPolarAreaChart " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        model table data and graph
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Bar Chart</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-light " role="alert">
+                    <div class="card-body">
+                        <canvas id="mypolarAreaChart" width="100%" height="50"></canvas>
+                    </div>
+                    <hr>
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+
+
+
+
+
+<script>
+    // Create an object:
+    var car = ["aa", "aa", "ac", "ad",];
+    a = car.sort();
+    document.getElementById("demo").innerHTML = a;
+</script>
+

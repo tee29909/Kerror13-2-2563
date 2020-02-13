@@ -1,0 +1,88 @@
+﻿@page
+@model tbkkData.Pages.Projects.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Detail Project</div>
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Project</li>
+            <li class="breadcrumb-item active">Detail</li>
+        </ol>
+        <div class="card">
+            <div class="card-body">
+                <form class="text-center">
+                    <div class="row">
+                        <div class="col">
+                            <p>@Html.DisplayNameFor(model => model.Project.EmployeeID) : @Html.DisplayFor(model => model.Project.Employee.FirstName) @Html.DisplayFor(model => model.Project.Employee.LastName)</p>
+                            <p>@Html.DisplayNameFor(model => model.Project.StartDate) : @Html.DisplayFor(model => model.Project.StartDate)</p>
+                            <p>@Html.DisplayNameFor(model => model.Project.Cost) :  @Html.DisplayFor(model => model.Project.Cost)</p>
+                        </div>
+                        <div class="col">
+                            <p>Name Project : @Html.DisplayFor(model => model.Project.Name)</p>
+                            <p>@Html.DisplayNameFor(model => model.Project.EndDate) : @Html.DisplayFor(model => model.Project.EndDate)</p>
+                            <p>@Html.DisplayNameFor(model => model.Project.CostGoal) : @Html.DisplayFor(model => model.Project.CostGoal)</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length"><i class="fas fa-table"> View Project</i></div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.project_Product[0].Product.Name)</th>
+                                <th>@Html.DisplayNameFor(model => model.project_Product[0].Product.CostPrice)</th>
+                                <th>@Html.DisplayNameFor(model => model.project_Product[0].Qty)</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.project_Product)
+                            {
+                                <tr class="text-center">
+                                    <td>@item.Product.Name</td>
+                                    <td>@item.Product.CostPrice</td>
+                                    <td>@item.Qty</td>
+                                    <td>
+                                        @{
+                                            int Qty = item.Qty;
+                                            double Price = item.Product.CostPrice;
+                                            double Total = Qty * Price;
+                                        }
+                                        @Total
+                                    </td>
+                                </tr>
+                            }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+

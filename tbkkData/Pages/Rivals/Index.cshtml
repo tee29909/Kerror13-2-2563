@@ -1,0 +1,69 @@
+﻿@page
+@model tbkkData.Pages.Rivals.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Rival</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Rival</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">  Rival</i>
+                    <div style="float: right">
+                        <a asp-page="Create" class="btn btn-success btn-sm float-right" type="button"> Create Rival</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr class="text-center">
+                                <th> @Html.DisplayNameFor(model => model.Rival[0].RivaID) </th>
+                                <th>@Html.DisplayNameFor(model => model.Rival[0].Name) Rival</th>
+                                <th>@Html.DisplayNameFor(model => model.Rival[0].Address)</th>
+                                <th>@Html.DisplayNameFor(model => model.Rival[0].Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.Rival[0].Telephone)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Rival)
+                            {
+                                <tr>
+                                    <td> @Html.DisplayFor(modelItem => item.RivaID)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Telephone)</td>
+                                    <td>
+                                        <a asp-page="./DetailsRival" asp-route-id="@item.RivaID"> <button type="button" class="btn btn-outline-primary btn-sm">Detail</button></a>
+                                        <a asp-page="./EditRival" asp-route-id="@item.RivaID"><button type="button" class="btn btn-outline-warning btn-sm">Edit</button></a>
+                                        <a asp-page="./Delete" asp-route-id="@item.RivaID"><button type="button" class="btn btn-outline-danger btn-sm">Delete</button> </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,145 @@
+﻿@page
+@model tbkkData.Pages.EmployeePerformence.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Create Employee</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Employee Performence</li>
+            <li class="breadcrumb-item active">Create Employee</li>
+        </ol>
+        <div class="card">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="card-header" style="font-weight:bold;color:darkblue;">Personal</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.FirstName" class="control-label"></label>
+                            <input asp-for="Employee.FirstName" class="form-control" />
+                            <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Employee.LastName" class="control-label"></label>
+                            <input asp-for="Employee.LastName" class="form-control" />
+                            <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.Address" class="control-label"></label>
+                            <input asp-for="Employee.Address" class="form-control" />
+                            <span asp-validation-for="Employee.Address" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Employee.Telephone" class="control-label"></label>
+                            <input asp-for="Employee.Telephone" class="form-control" />
+                            <span asp-validation-for="Employee.Telephone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.Email" class="control-label"></label>
+                            <input asp-for="Employee.Email" class="form-control" />
+                            <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Employee.Gender" class="control-label"></label>
+                            <select asp-for="Employee.Gender" class="form-control">
+                                <option>Male</option>
+                                <option>Woman</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.Salary" class="control-label"></label>
+                            <input asp-for="Employee.Salary" class="form-control" />
+                            <span asp-validation-for="Employee.Salary" class="text-danger"></span>
+                        </div>
+
+                        <div class="col">
+                            <label asp-for="Employee.Birthday" class="control-label"></label>
+                            <input asp-for="Employee.Birthday" class="form-control" />
+                            <span asp-validation-for="Employee.Birthday" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+
+                <div class="card-header" style="font-weight:bold;color:darkblue;">About Company</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.Date_of_employment" class="control-label"></label>
+                            <input asp-for="Employee.Date_of_employment" class="form-control" />
+                            <span asp-validation-for="Employee.Date_of_employment" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Employee.Company" class="control-label"></label>
+                            <select asp-for="Employee.CompanyID" class="form-control" asp-items="ViewBag.CompanyID"></select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.Department" class="control-label"></label>
+                            <select asp-for="Employee.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Employee.Position" class="control-label"></label>
+                            <select asp-for="Employee.PositionID" class="form-control" asp-items="ViewBag.PositionID"></select>
+
+                        </div>
+                        <div hidden class="col">
+                            <label asp-for="Employee.Status" class="control-label"></label>
+                            <input asp-for="Employee.Status" class="form-control" value="Working" />
+                            <span asp-validation-for="Employee.Status" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Employee.EmployeeType" class="control-label"></label>
+                            <select asp-for="Employee.EmployeeTypeID" class="form-control" asp-items="ViewBag.EmployeeTypeID"></select>
+                        </div>
+                        <div class="col">
+                              </div>
+                    </div>
+                    <br />
+                    <div class="row">
+
+                    </div>
+                    <br />
+                    <div style="text-align:center">
+                        <button type="submit" value="Create" class="btn  btn-success ">Create</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <br />
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

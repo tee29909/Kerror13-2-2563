@@ -1,0 +1,67 @@
+﻿@page
+@model tbkkData.Pages.Rivals.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+<div id="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Create Rival</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Rival</li>
+            <li class="breadcrumb-item active">Create Rival</li>
+        </ol>
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="inputNameRival">Name Rival :</label>
+                            <input asp-for="Rival.Name" class="form-control" id="inputName" placeholder="Name">
+                            <span asp-validation-for="Rival.Name" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label for="inputAddress">Address :</label>
+                            <input asp-for="Rival.Address" class="form-control" id="inputAddress" placeholder="Address">
+                            <span asp-validation-for="Rival.Address" class="text-danger"></span>
+                        </div>
+                    </div><br />
+                    <div class="row">
+
+                        <div class="col">
+                            <label for="inputEmail">Email :</label>
+                            <input asp-for="Rival.Email" class="form-control" id="inputEmail" placeholder="Email">
+                            <span asp-validation-for="Rival.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label for="inputTelephone">Telephone :</label>
+                            <input asp-for="Rival.Telephone" class="form-control" id="inputTelephone" placeholder="Telephone">
+                            <span asp-validation-for="Rival.Telephone" class="text-danger"></span>
+                        </div>
+                    </div><br />
+                    <div style="text-align:center">
+                        <input type="submit" value="Create" class="btn btn-default btn-success " />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

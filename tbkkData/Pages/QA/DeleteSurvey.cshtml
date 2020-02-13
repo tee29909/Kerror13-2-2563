@@ -1,0 +1,52 @@
+﻿@page
+@model tbkkData.Pages.QA.DeleteSurveyModel
+
+@{
+    ViewData["Title"] = "DeleteSurvey";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Details Survey</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Surveys Operators</li>
+            <li class="breadcrumb-item active">Delete</li>
+        </ol>
+        <div class="card text-center">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p>@Html.DisplayNameFor(model => model.SurveyOperators.Date) : @Html.DisplayFor(model => model.SurveyOperators.Date) </p>
+                        <p>@Html.DisplayNameFor(model => model.SurveyOperators.Type_Survey) :  @Html.DisplayFor(model => model.SurveyOperators.Type_Survey.TypeSurvey) </p>
+                    </div>
+                    <div class="col">
+                        <p>@Html.DisplayNameFor(model => model.SurveyOperators.Survey) :  @Html.DisplayFor(model => model.SurveyOperators.Survey.NameSurvey)</p>
+                        <p> @Html.DisplayNameFor(model => model.SurveyOperators.SurveyCount) : @Html.DisplayFor(model => model.SurveyOperators.SurveyCount)</p>
+                    </div>
+                </div>
+            </div>
+            <form method="post">
+                <div style="text-align:center">
+
+                    <input type="hidden" asp-for="SurveyOperators.SurveyOperatorsID" />
+                    <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" style="width:90px" />
+                    <a asp-page="./Surveys" class="btn btn-outline-info btn-sm" style="width:90px">Back to List</a>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+</div>
+
+

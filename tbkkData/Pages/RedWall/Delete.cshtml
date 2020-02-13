@@ -1,0 +1,46 @@
+﻿@page
+@model tbkkData.Pages.RedWall.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rival</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rival.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rival.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rival.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rival.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rival.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rival.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rival.Telephone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rival.Telephone)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Rival.RivaID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

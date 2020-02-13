@@ -1,0 +1,70 @@
+﻿@page
+@model tbkkData.Pages.Projects.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Project</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Project</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table"> Project</i>
+                    <div style="float: right">
+                        <a asp-page="Create" class="btn btn-success btn-sm float-right">Create Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.Project[0].ProjectID)</th>
+                                <th>@Html.DisplayNameFor(model => model.Project[0].Name)</th>
+                                <th> @Html.DisplayNameFor(model => model.Project[0].Cost)</th>
+                                <th>@Html.DisplayNameFor(model => model.Project[0].CostGoal)</th>
+                                <th>@Html.DisplayNameFor(model => model.Project[0].Status)</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Project)
+                            {
+                            <tr class="text-center">
+                                <th>@Html.DisplayFor(model => item.ProjectID)</th>
+                                <th>@Html.DisplayFor(model => item.Name)</th>
+                                <th>@Html.DisplayFor(model => item.Cost)</th>
+                                <th>@Html.DisplayFor(model => item.CostGoal)</th>
+                                <th>@Html.DisplayFor(model => item.Status)</th>
+                                <td>
+                                    <a asp-page="./Add" class="btn  btn-outline-success btn-sm" asp-route-id="@item.ProjectID">Add Product</a>
+                                    <a asp-page="./Edit" class="btn  btn-outline-warning btn-sm" asp-route-id="@item.ProjectID">Edit</a>
+                                    <a asp-page="./Details" class="btn btn-outline-primary btn-sm" asp-route-id="@item.ProjectID">Detail</a>
+                                    <a asp-page="./Delete" class="btn btn-outline-danger btn-sm" asp-route-id="@item.ProjectID"> Delete</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

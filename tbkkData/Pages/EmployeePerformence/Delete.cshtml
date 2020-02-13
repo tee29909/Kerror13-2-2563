@@ -1,0 +1,71 @@
+﻿@page
+@model tbkkData.Pages.EmployeePerformence.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Delete Employee</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Employee Performence</li>
+            <li class="breadcrumb-item active">Delete</li>
+        </ol>
+        <div class="card">
+            <br />
+            <p class="text-center text-danger">Are you sure you want to delete this?</p>
+            <hr />
+            <div class="card-body">
+                <form class="text-center">
+                    <div class="row">
+                        <div class="col">
+                            <p>@Html.DisplayNameFor(model => model.Employee.FirstName): @Html.DisplayFor(model => model.Employee.FirstName)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Address): @Html.DisplayFor(model => model.Employee.Address)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Email): @Html.DisplayFor(model => model.Employee.Email)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Status):  @Html.DisplayFor(model => model.Employee.Status)</p>
+                            <p> @Html.DisplayNameFor(model => model.Employee.Birthday):@Html.DisplayFor(model => model.Employee.Birthday)</p>
+                            <p> @Html.DisplayNameFor(model => model.Employee.Company):@Html.DisplayFor(model => model.Employee.Company.CompanyName)</p>
+                            <p> @Html.DisplayNameFor(model => model.Employee.EmployeeType):@Html.DisplayFor(model => model.Employee.EmployeeType.EmployeeTypeName)</p>
+                        </div>
+                        <div class="col">
+                            <p>@Html.DisplayNameFor(model => model.Employee.LastName) : @Html.DisplayFor(model => model.Employee.LastName)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Telephone) : @Html.DisplayFor(model => model.Employee.Telephone)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Salary):  @Html.DisplayFor(model => model.Employee.Salary)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Date_of_employment):  @Html.DisplayFor(model => model.Employee.Date_of_employment)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Department): @Html.DisplayFor(model => model.Employee.Department.DepartmentName)</p>
+                            <p> @Html.DisplayNameFor(model => model.Employee.Position):  @Html.DisplayFor(model => model.Employee.Position.PositionName)</p>
+                            <p>  @Html.DisplayNameFor(model => model.Employee.Gender):  @Html.DisplayFor(model => model.Employee.Gender)</p>
+                        </div>
+                    </div>
+                </form>
+                <form method="post">
+                    <input type="hidden" asp-for="Employee.EmployeeID" />
+                    <div style="text-align:center">
+                        <button type="submit" value="Delete" class="btn btn-danger btn-sm ">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+

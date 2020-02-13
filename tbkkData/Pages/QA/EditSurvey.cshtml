@@ -1,0 +1,66 @@
+﻿@page
+@model tbkkData.Pages.QA.EditSurveyModel
+
+@{
+    ViewData["Title"] = "EditSurvey";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Edit Survey</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Surveys Operators</li>
+            <li class="breadcrumb-item active">Edit</li>
+        </ol>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="SurveyOperators.SurveyOperatorsID" />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="SurveyOperators.Date" class="control-label"></label>
+                            <input asp-for="SurveyOperators.Date" class="form-control" />
+                            <span asp-validation-for="SurveyOperators.Date" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="SurveyOperators.Type_SurveyID" class="control-label">Type Survey</label>
+                            <select asp-for="SurveyOperators.Type_SurveyID" class="form-control" asp-items="ViewBag.Type_SurveyID"></select>
+                            <span asp-validation-for="SurveyOperators.Type_SurveyID" class="text-danger"></span>
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="SurveyOperators.SurveyID" class="control-label">Survey</label>
+                            <select asp-for="SurveyOperators.SurveyID" class="form-control" asp-items="ViewBag.SurveyID"></select>
+                            <span asp-validation-for="SurveyOperators.SurveyID" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="SurveyOperators.SurveyCount" class="control-label">Survey Count</label>
+                            <input asp-for="SurveyOperators.SurveyCount" class="form-control" />
+                            <span asp-validation-for="SurveyOperators.SurveyCount" class="text-danger"></span>
+                        </div>
+                    </div><br />
+                    <div style="text-align:center">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

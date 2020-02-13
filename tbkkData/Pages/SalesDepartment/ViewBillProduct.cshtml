@@ -1,0 +1,142 @@
+﻿@page
+@model tbkkData.Pages.SalesDepartment.ViewBillProductModel
+
+@{
+    ViewData["Title"] = "ViewBillProduct";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+<div class="container-fluid">
+    <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Detail Invoice</div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Management Cockpit</li>
+        <li class="breadcrumb-item active">Sales Department</li>
+        <li class="breadcrumb-item active">Detail Customer</li>
+        <li class="breadcrumb-item active">Detail Invoice</li>
+    </ol>
+    <div class="card">
+        <div class="card-body">
+            <form style="text-align:center">
+                <div class="row">
+                    <div class="col">
+                        <p>Name Employee : @Html.DisplayFor(model => model.Order.Employee.FirstName) @Html.DisplayFor(model => model.Order.Employee.LastName)</p>
+                        <p>@Html.DisplayNameFor(model => model.Order.OrDate) : @Html.DisplayFor(model => model.Order.OrDate)</p>
+                        <p>@Html.DisplayNameFor(model => model.Order.Invoice) :  @Html.DisplayFor(model => model.Order.Invoice)</p>
+                    </div>
+                    <div class="col">
+                        <p>Name Customer : @Html.DisplayFor(model => model.Order.Customer.FirsName) @Html.DisplayFor(model => model.Order.Customer.LastName)</p>
+                        <p>@Html.DisplayNameFor(model => model.Order.ShippedDate) : @Html.DisplayFor(model => model.Order.ShippedDate)</p>
+                        <p>@Html.DisplayNameFor(model => model.Order.Total) : @Html.DisplayFor(model => model.Order.Total)</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><br />
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="dataTable_length">
+                <i class="fas fa-table">   Bill Product</i>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr class="text-center">
+                            <th>@Html.DisplayNameFor(model => model.Order_Product[0].Product.Name)</th>
+                            <th>Quantity</th>
+                            <th>@Html.DisplayNameFor(model => model.Order_Product[0].Product.SellingPrice)</th>
+                            <th>Total Price</th>
+                        </tr>
+
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach (var item in Model.Order_Product)
+                        {
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Qty.ToString("N0")</td>
+                                <td>@item.Product.SellingPrice.ToString("N0")</td>
+
+                                <td>
+                                    @{
+                                        int Qty = item.Qty;
+                                        double Price = item.Product.SellingPrice;
+                                        double Total = Qty * Price;
+
+                                    }
+                                    @Total.ToString("N0")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div>
+                <form method="post">
+                    <div hidden asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input hidden asp-for="Order.OrderID" />
+                    <div hidden class="form-group">
+                        <label asp-for="Order.OrDate" class="control-label"></label>
+                        <input asp-for="Order.OrDate" class="form-control" />
+                        <span asp-validation-for="Order.OrDate" class="text-danger"></span>
+                    </div>
+                    <div hidden class="form-group">
+                        <label asp-for="Order.ShippedDate" class="control-label"></label>
+                        <input asp-for="Order.ShippedDate" class="form-control" />
+                        <span asp-validation-for="Order.ShippedDate" class="text-danger"></span>
+                    </div>
+                    <div hidden class="form-group">
+                        <label asp-for="Order.Invoice" class="control-label"></label>
+                        <input asp-for="Order.Invoice" class="form-control" />
+                        <span asp-validation-for="Order.Invoice" class="text-danger"></span>
+                    </div>
+                    <div hidden class="form-group">
+                        <label asp-for="Order.Status" class="control-label"></label>
+                        <input asp-for="Order.Status" class="form-control" value="InComplete" />
+                        <span asp-validation-for="Order.Status" class="text-danger"></span>
+                    </div>
+                    <div hidden class="form-group">
+                        <label asp-for="Order.Total" class="control-label"></label>
+                        <input asp-for="Order.Total" class="form-control" />
+                        <span asp-validation-for="Order.Total" class="text-danger"></span>
+                    </div>
+                    <div hidden class="form-group">
+                        <label asp-for="Order.CustomerID" class="control-label"></label>
+                        <select asp-for="Order.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                        <span asp-validation-for="Order.CustomerID" class="text-danger"></span>
+                    </div>
+                    <div hidden class="form-group">
+                        <label asp-for="Order.EmployeeID" class="control-label"></label>
+                        <select asp-for="Order.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                        <span asp-validation-for="Order.EmployeeID" class="text-danger"></span>
+                    </div>
+                    <br />
+
+                    @if (Model.Order.Status.Equals("Complete")){
+                        <div class="form-group" style="text-align:center">
+                            <input type="submit" value="Complete" asp-route-id="@Model.emp" class="btn btn-warning btn-sm">
+                        </div>
+                     }else if (Model.Order.Status.Equals("InComplete")){
+                        <div class="form-group" style="text-align:center">
+                        </div>
+                     }
+
+                    </form>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+</div>

@@ -1,0 +1,48 @@
+﻿@page
+@model tbkkData.Pages.BP_PRODUCTION.DeleteReductionModel
+
+@{
+    ViewData["Title"] = "DeleteReduction";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Product Loss Reduction</li>
+            <li class="breadcrumb-item active">Delete</li>
+        </ol>
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Delete Product Loss Reduction</div>
+        <div class="card">
+            <br />
+            <p class="text-center text-danger">Are you sure you want to delete this?</p><hr />
+            <div class="card-body">
+                <form class="text-center">
+                    <div class="row">
+                        <div class="col">
+                            <p>@Html.DisplayNameFor(model => model.Product_Loss_Reduction.Date) : @Html.DisplayFor(model => model.Product_Loss_Reduction.Date)</p>
+                            <p>@Html.DisplayNameFor(model => model.Product_Loss_Reduction.Limits) :  @Html.DisplayFor(model => model.Product_Loss_Reduction.Limits)</p>
+                            <p>Man_Hr/pc :  @Html.DisplayFor(model => model.Product_Loss_Reduction.Man_Hr_Per_pc)</p>
+                            <p>Type ProductLooss :  @Html.DisplayFor(model => model.Product_Loss_Reduction.type_productLooss.Name)</p>
+                        </div>
+                    </div>
+                </form>
+                <form method="post">
+                    <input type="hidden" asp-for="Product_Loss_Reduction.Product_Loss_ReductionID" />
+                    <div style="text-align:center">
+                        <button type="submit" value="Delete" class="btn btn-danger btn-sm ">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div><br />
+    </div>
+</div>
+

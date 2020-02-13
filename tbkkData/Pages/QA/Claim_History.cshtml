@@ -1,0 +1,101 @@
+﻿@page
+@model tbkkData.Claim_HistoryModel
+
+@{
+    ViewData["Title"] = "Claim_History";
+
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">History Claim</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">History Claim</li>
+        </ol>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length"><i class="fas fa-table"> Detail Claim</i></div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.Complain[0].DateComplain)</th>
+                                <th>@Html.DisplayNameFor(model => model.Claim[0].DateClaim)</th>
+                                <th>@Html.DisplayNameFor(model => model.Complain[0].Order.Invoice)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Claim)
+                            {
+                                <tr class="text-center">
+                                    <td>@Html.DisplayFor(modelItem => item.Complain.DateComplain)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.DateClaim)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.Complain.Order.Invoice)</td>
+                                    
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    @*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    
+                </th>
+
+                <th>
+                    
+                </th>
+
+                <th>
+                    
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Claim)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Complain.DateComplain)
+                    </td>
+
+                    <td>
+                       
+                    </td>
+
+                    <td>
+                       
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>*@

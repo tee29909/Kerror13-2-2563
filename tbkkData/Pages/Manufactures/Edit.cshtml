@@ -1,0 +1,59 @@
+﻿@page
+@model tbkkData.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    
+}
+    <script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+    </script>
+<h2>Edit</h2>
+
+<h4>Manufacture</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Manufacture.ManufactureID" />
+            <div class="form-group">
+                <label asp-for="Manufacture.Quantity" class="control-label"></label>
+                <input asp-for="Manufacture.Quantity" class="form-control" />
+                <span asp-validation-for="Manufacture.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manufacture.Date" class="control-label"></label>
+                <input asp-for="Manufacture.Date" class="form-control" />
+                <span asp-validation-for="Manufacture.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manufacture.ProductID" class="control-label"></label>
+                <select asp-for="Manufacture.ProductID" class="form-control" asp-items="ViewBag.ProductID"></select>
+                <span asp-validation-for="Manufacture.ProductID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manufacture.EmployeeID" class="control-label"></label>
+                <select asp-for="Manufacture.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                <span asp-validation-for="Manufacture.EmployeeID" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

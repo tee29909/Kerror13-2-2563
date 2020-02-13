@@ -1,0 +1,60 @@
+﻿@page
+@model tbkkData.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    
+}
+    <script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+    </script>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Manufacture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacture.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manufacture.Quantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacture.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manufacture.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacture.Product)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manufacture.Product.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacture.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manufacture.Employee.FirstName)   @Html.DisplayFor(model => model.Manufacture.Employee.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacture.Employee.Company)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manufacture.Employee.Company.CompanyName)   @Html.DisplayFor(model => model.Manufacture.Employee.Company.Category)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Manufacture.ManufactureID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

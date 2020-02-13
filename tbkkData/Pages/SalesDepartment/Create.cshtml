@@ -1,0 +1,82 @@
+﻿@page
+@model tbkkData.Pages.SalesDepartment.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Create Customer</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Sales Department</li>
+            <li class="breadcrumb-item active">Create Customer</li>
+        </ol>
+        <div class="card ">
+            <div class="card-body ">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+
+                        <div class="col">
+                            <label asp-for="Customer.FirsName"></label>
+                            <input asp-for="Customer.FirsName" class="form-control" />
+                            <span asp-validation-for="Customer.FirsName" class="text-danger"></span>
+                        </div>
+
+                        <div class="col">
+                            <label asp-for="Customer.LastName"></label>
+                            <input asp-for="Customer.LastName" class="form-control" />
+                            <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+                        </div>
+
+                    </div><br />
+
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Customer.Address"></label>
+                            <input asp-for="Customer.Address" class="form-control" />
+                            <span asp-validation-for="Customer.Address" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Customer.Email"></label>
+                            <input asp-for="Customer.Email" class="form-control" />
+                            <span asp-validation-for="Customer.Email" class="text-danger"></span>
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Customer.Telephone"></label>
+                            <input asp-for="Customer.Telephone" class="form-control" />
+                            <span asp-validation-for="Customer.Telephone" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div><br />
+
+                    <div style="text-align:center">
+                        <button type="submit" value="Create" class="btn btn-default btn-success "> Create </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

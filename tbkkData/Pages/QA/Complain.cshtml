@@ -1,0 +1,65 @@
+﻿@page
+@model tbkkData.Pages.QA.ComplainModel
+
+@{
+    ViewData["Title"] = "Complain";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div class="container">
+    <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Complain</div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Management Cockpit</li>
+        <li class="breadcrumb-item active">Complain</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="dataTable_length">
+                <i class="fas fa-table"> Complain</i>
+            </div>
+        </div>
+        <form method="post">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.Complain[0].DateComplain)</th>
+                                <th>@Html.DisplayNameFor(model => model.Complain[0].Status)</th>
+                                <th>@Html.DisplayNameFor(model => model.Complain[0].Order.Customer)</th>
+                                <th>@Html.DisplayNameFor(model => model.Complain[0].Order.Invoice)</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Complain)
+                            {
+                                <tr class="text-center">
+                                    <th>@Html.DisplayFor(modelItem => item.DateComplain)</th>
+                                    <th>@Html.DisplayFor(modelItem => item.Order.Status)</th>
+                                    <th>@Html.DisplayFor(modelItem => item.Order.Customer.FirsName) @Html.DisplayFor(modelItem => item.Order.Customer.LastName)</th>
+                                    <th>@Html.DisplayFor(modelItem => item.Order.Invoice)</th>
+                                    <td>
+                                        <input type="submit" value="Claim" asp-route-id="@item.ComplainID" class="btn btn-outline-warning btn-sm">
+                                        @*<a asp-page="./DetailsComplain" asp-route-id="@item.OrderID" class="btn btn-outline-primary btn-sm">Details</a>
+                                            <a asp-page="./DeleteComplain" asp-route-id="@item.OrderID" class="btn btn-outline-danger btn-sm">Delete</a>*@
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

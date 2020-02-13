@@ -1,0 +1,51 @@
+﻿@page
+@model tbkkData.Pages.Projects.AddModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+    <script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+    </script>
+    <div class="container">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">
+           Add Product
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group row">
+                        <label for="inputEmployeeID" class="col-sm-2 col-form-label">Project :</label>
+                        <div class="col-sm-10">
+                            <input hidden asp-for="Project_Product.ProjectID" value="@Model.Project.ProjectID" />
+                            <label class="col-sm-3 col-form-label">@Model.Project.Name</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmployeeID" class="col-sm-2 col-form-label">Product :</label>
+                        <div class="col-sm-10">
+                            <select asp-for="Project_Product.ProductID" class="form-control" asp-items="ViewBag.ProductID"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputCost" class="col-sm-2 col-form-label">Quantity :</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Project_Product.Qty" type="text" class="form-control" id="inputQtyProject_Product" placeholder="Quantity">
+                            <span asp-validation-for="Project_Product.Qty" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" value="Create" class="btn btn-success float-right">Add</button>
+                </form>
+            </div>
+        </div><br />
+    </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

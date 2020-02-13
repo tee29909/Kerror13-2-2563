@@ -1,0 +1,67 @@
+﻿@page
+@model tbkkData.Pages.BP_PRODUCTION.ProductLossReductionModel
+
+@{
+    ViewData["Title"] = "ProductLossReduction";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Product Loss Reduction</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Product Loss Reduction</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table"> Product Loss Reduction</i>
+                    <div style="float: right">
+                        <a asp-page="CreateReduction" class="btn btn-success btn-sm float-right">Create Product Loss Reduction</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.Product_Loss_Reduction[0].Date)</th>
+                                <th> Type ProductLooss </th>
+                                <th> @Html.DisplayNameFor(model => model.Product_Loss_Reduction[0].Limits)</th>
+                                <th> Man_Hr/pc</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Product_Loss_Reduction)
+                            {
+                                <tr class="text-center">
+                                    <th> @Html.DisplayFor(modelItem => item.Date)</th>
+
+                                    <th> @Html.DisplayFor(modelItem => item.type_productLooss.Name)</th>
+                                    <th> @Html.DisplayFor(modelItem => item.Limits)</th>
+                                    <th> @Html.DisplayFor(modelItem => item.Man_Hr_Per_pc)</th>
+                                    <td>
+                                        <a asp-page="./EditReduction" asp-route-id="@item.Product_Loss_ReductionID" class="btn btn-outline-warning btn-sm">Edit</a>
+                                        <a asp-page="./DeleteReduction" asp-route-id="@item.Product_Loss_ReductionID" class="btn btn-outline-danger btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

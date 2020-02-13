@@ -1,0 +1,44 @@
+﻿@page
+@model tbkkData.Pages.QA.DetailsSurveyModel
+
+@{
+    ViewData["Title"] = "DetailsSurvey";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Details Survey</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Surveys Operators</li>
+            <li class="breadcrumb-item active">Details Survey</li>
+        </ol>
+        <div class="card text-center">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p>@Html.DisplayNameFor(model => model.SurveyOperators.Date) : @Html.DisplayFor(model => model.SurveyOperators.Date) </p>
+                        <p>@Html.DisplayNameFor(model => model.SurveyOperators.Type_Survey) :  @Html.DisplayFor(model => model.SurveyOperators.Type_Survey.TypeSurvey) </p>
+                    </div>
+                    <div class="col">
+                        <p>@Html.DisplayNameFor(model => model.SurveyOperators.Survey) :  @Html.DisplayFor(model => model.SurveyOperators.Survey.NameSurvey)</p>
+                        <p> @Html.DisplayNameFor(model => model.SurveyOperators.SurveyCount) : @Html.DisplayFor(model => model.SurveyOperators.SurveyCount)</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center">
+                <a asp-page="./EditSurvey" asp-route-id="@Model.SurveyOperators.SurveyOperatorsID" class="btn btn-outline-warning btn-sm" style="width:90px">Edit</a>
+                <a asp-page="./Surveys" class="btn btn-outline-info btn-sm" >Back to List</a>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@page
+@model tbkkData.Pages.ResultHalf.CreateDeliverysModel
+
+@{
+    ViewData["Title"] = "CreateDeliverys";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert"> Create Deliverys Performance</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Deliverys Performance</li>
+            <li class="breadcrumb-item active">Create Deliverys Performance</li>
+        </ol>
+        <div class="card ">
+            <div class="card-body ">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Delivery_performance.Complains_Delivery" class="control-label"></label>
+                            <input asp-for="Delivery_performance.Complains_Delivery" class="form-control" />
+                            <span asp-validation-for="Delivery_performance.Complains_Delivery" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Delivery_performance.Claim_Delivery" class="control-label"></label>
+                            <input asp-for="Delivery_performance.Claim_Delivery" class="form-control" />
+                            <span asp-validation-for="Delivery_performance.Claim_Delivery" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Delivery_performance.EmployeeID" class="control-label"></label>
+                            <select asp-for="Delivery_performance.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Delivery_performance.DateDelivery" class="control-label"></label>
+                            <input asp-for="Delivery_performance.DateDelivery" class="form-control" />
+                            <span asp-validation-for="Delivery_performance.DateDelivery" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div style="text-align:center">
+                        <button type="submit" value="Create" class="btn btn-default btn-success "> Create </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

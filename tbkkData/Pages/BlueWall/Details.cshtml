@@ -1,0 +1,44 @@
+﻿@page
+@model tbkkData.Pages.BlueWall.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.CostPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.CostPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Partners)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Partners.PartnerID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Product.ProductID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

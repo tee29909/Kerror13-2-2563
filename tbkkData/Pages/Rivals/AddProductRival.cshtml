@@ -1,0 +1,68 @@
+﻿@page
+@model tbkkData.Pages.Rivals.AddProductRivalModel
+
+@{
+    ViewData["Title"] = "AddProductRival";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Add Product Rival</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Rival</li>
+            <li class="breadcrumb-item active">Detail</li>
+            <li class="breadcrumb-item active">Add Products</li>
+        </ol>
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="inputRivalID">Name Rival :</label>
+                              <input hidden asp-for="Rival_Product.RivalID" class="form-control" value="@Model.Rival.RivaID" />
+                                <label class="col-sm-3 col-form-label">@Model.Rival.Name</label>
+                            
+                        </div>
+                        <div class="col">
+                            <label for="inputProductID">Name Product :</label>
+                            <select asp-for="Rival_Product.ProductID" class="form-control" asp-items="ViewBag.ProductID"></select>
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col">
+                            <label for="inputRivDate">RivDate :</label>
+                            <input asp-for="Rival_Product.RivDate" class="form-control" id="inputAddress" placeholder="RivDate">
+                            <span asp-validation-for="Rival_Product.RivDate" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label for="inputPrice">Price :</label>
+                            <input asp-for="Rival_Product.Price" class="form-control" id="inputEmail" placeholder="Price">
+                            <span asp-validation-for="Rival_Product.Price" class="text-danger"></span>
+                        </div>
+                    </div><br />
+                    <div style="text-align:center">
+                        <input type="submit" value="Create" class="btn btn-success t" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+
+</div>
+
+

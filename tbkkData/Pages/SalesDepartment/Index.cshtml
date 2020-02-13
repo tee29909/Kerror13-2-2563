@@ -1,0 +1,73 @@
+﻿@page
+@model tbkkData.Pages.SalesDepartment.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+
+
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Customer</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Sales Department</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table"> Customer</i>
+                    <a asp-page="Create" class="btn btn-success btn-sm float-right" type="button">Create Customer</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.Customer[0].CustomerID)</th>
+                                <th>@Html.DisplayNameFor(model => model.Customer[0].FirsName)</th>
+                                <th>@Html.DisplayNameFor(model => model.Customer[0].LastName)</th>
+                                <th>@Html.DisplayNameFor(model => model.Customer[0].Telephone)</th>
+                                <th>@Html.DisplayNameFor(model => model.Customer[0].Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.Customer[0].Address)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Customer)
+                            {
+                                <tr class="text-center">
+                                    <td>@Html.DisplayFor(Model => item.CustomerID)</td>
+                                    <td>@Html.DisplayFor(Model => item.FirsName)</td>
+                                    <td>@Html.DisplayFor(Model => item.LastName)</td>
+                                    <td>@Html.DisplayFor(Model => item.Telephone)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(Model => item.Address)</td>
+                                    <td>
+                                        <a asp-page="./ViewOrder" asp-route-id="@item.CustomerID" asp-route-id2="0" type="button" class="btn btn-outline-primary btn-sm">Detail Customer</a>
+                                        <a asp-page="./Edit" asp-route-id="@item.CustomerID" type="button" class="btn btn-outline-warning btn-sm">Edit Customer</a>
+                                        <a asp-page="./Delete" asp-route-id="@item.CustomerID" type="button" class="btn btn-outline-danger btn-sm">Delete</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>

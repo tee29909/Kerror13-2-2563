@@ -1,0 +1,68 @@
+﻿@page
+@model tbkkData.Pages.SalesDepartment.ViewOrderModel
+
+@{
+    ViewData["Title"] = "ViewOrder";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert"> Detail Customer</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Sales Department</li>
+            <li class="breadcrumb-item active">Detail Customer</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">   Order</i>
+                    <a asp-page="CreateOrder" asp-route-id="@Model.emp"><button type="button" class="btn btn-success btn-sm float-right">Create Order</button></a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead class="thead-dark">
+                            <tr class="text-center">
+                                <th>@Html.DisplayNameFor(model => model.Order[0].Invoice)</th>
+                                <th>@Html.DisplayNameFor(model => model.Order[0].OrDate)</th>
+                                <th>Name Employee</th>
+                                <th>Total Price</th>
+                                <th>@Html.DisplayNameFor(model => model.Order[0].Status)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Order)
+                            {
+                                <tr class="text-center">
+                                    <td>@Html.DisplayFor(Model => item.Invoice)</td>
+                                    <td>@Html.DisplayFor(Model => item.OrDate)</td>
+                                    <td>@Html.DisplayFor(Model => item.Employee.FirstName) @Html.DisplayFor(Model => item.Employee.LastName)</td>
+                                    <td>@Html.DisplayFor(model => item.Total)</td>
+                                    <td>@Html.DisplayFor(model => item.Status)</td>
+                                    <td>
+                                        <a asp-page="./ViewBillProduct" asp-route-id="@Model.emp" asp-route-id2="@item.OrderID"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a>
+
+                                        <a asp-page="./AddSaleDepartment" asp-route-id="@item.OrderID"><button type="button" class="btn btn-outline-success btn-sm">Add</button></a>
+                                        <a asp-page="./DeleteOrder" asp-route-id="@item.OrderID"><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><br />
+    </div>
+
+</div>

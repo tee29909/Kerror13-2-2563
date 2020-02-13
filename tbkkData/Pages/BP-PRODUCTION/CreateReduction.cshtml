@@ -1,0 +1,68 @@
+﻿@page
+@model tbkkData.Pages.BP_PRODUCTION.CreateReductionModel
+
+@{
+    ViewData["Title"] = "CreateReduction";
+}
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert"> Create Product Loss Reduction</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Product Loss Reduction</li>
+            <li class="breadcrumb-item active">Create Product Loss Reduction</li>
+        </ol>
+        <div class="card ">
+            <div class="card-body ">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Product_Loss_Reduction.Date" class="control-label"></label>
+                            <input asp-for="Product_Loss_Reduction.Date" class="form-control" />
+                            <span asp-validation-for="Product_Loss_Reduction.Date" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Product_Loss_Reduction.type_productLooss" class="control-label">Type ProductLooss</label>
+                            <select asp-for="Product_Loss_Reduction.type_productLoossID" class="form-control" asp-items="ViewBag.type_productLoossID"></select>
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="Product_Loss_Reduction.Man_Hr_Per_pc" class="control-label">Man_Hr/pc</label>
+                            <input asp-for="Product_Loss_Reduction.Man_Hr_Per_pc" class="form-control" />
+                            <span asp-validation-for="Product_Loss_Reduction.Man_Hr_Per_pc" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label asp-for="Product_Loss_Reduction.Limits" class="control-label"></label>
+                            <input asp-for="Product_Loss_Reduction.Limits" class="form-control" />
+                            <span asp-validation-for="Product_Loss_Reduction.Limits" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div style="text-align:center">
+                        <button type="submit" value="Create" class="btn btn-default btn-success "> Create </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

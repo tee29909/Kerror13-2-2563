@@ -1,0 +1,53 @@
+﻿@page
+@model tbkkData.Pages.EmployeePerformence.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Detail Employee</div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Management Cockpit</li>
+            <li class="breadcrumb-item active">Employee Performence</li>
+            <li class="breadcrumb-item active">Detail</li>
+        </ol>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <p>@Html.DisplayNameFor(model => model.Employee.FirstName) : @Html.DisplayFor(model => model.Employee.FirstName)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Address) : @Html.DisplayFor(model => model.Employee.Address)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Email) :  @Html.DisplayFor(model => model.Employee.Email)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Birthday) : @Html.DisplayFor(model => model.Employee.Birthday)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Gender) : @Html.DisplayFor(model => model.Employee.Gender)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Salary) :  @Html.DisplayFor(model => model.Employee.Salary)</p>
+                        </div>
+                        <div class="col">
+                            <p>@Html.DisplayNameFor(model => model.Employee.LastName) : @Html.DisplayFor(model => model.Employee.LastName)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Telephone) : @Html.DisplayFor(model => model.Employee.Telephone)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Company) : @Html.DisplayFor(model => model.Employee.Company.CompanyName) @Html.DisplayFor(model => model.Employee.Company.Category)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Date_of_employment) : @Html.DisplayFor(model => model.Employee.Date_of_employment)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Status) :  @Html.DisplayFor(model => model.Employee.Status)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.EmployeeType.EmployeeTypeName) : @Html.DisplayFor(model => model.Employee.EmployeeType.EmployeeTypeName)</p>
+                            <p>@Html.DisplayNameFor(model => model.Employee.Department.DepartmentName) :  @Html.DisplayFor(model => model.Employee.Department.DepartmentName)</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>

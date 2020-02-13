@@ -1,0 +1,101 @@
+﻿@page
+@model tbkkData.Pages.ResultHalf.EditDeliveryModel
+
+@{
+    ViewData["Title"] = "EditDelivery";
+}
+
+<script>
+                                document.getElementById("name").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+                                document.getElementById("name1").innerHTML = "@Model.Employees[0].FirstName.ToString()";
+                                document.getElementById("lastname1").innerHTML = "@Model.Employees[0].LastName.ToString()";
+                                document.getElementById("position1").innerHTML = "@Model.Employees[0].Position.PositionName.ToString()";
+</script>
+
+<div id="content-wrapper">
+
+    <div class="alert alert-dark text-md-center font-weight-bold" role="alert">Edit Delivery</div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Management Cockpit</li>
+        <li class="breadcrumb-item active">Deliverys Performance</li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Delivery_performance.Delivery_performanceID" />
+
+                <div class="row">
+                    <div class="col">
+                        <label for="inputDateDelivery">DateDelivery :</label>
+                        <input asp-for="Delivery_performance.DateDelivery" class="form-control" />
+                        <span asp-validation-for="Delivery_performance.DateDelivery" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label for="inputComplains_Delivery">Complains_Delivery :</label>
+                        <input asp-for="Delivery_performance.Complains_Delivery" class="form-control" />
+                        <span asp-validation-for="Delivery_performance.Complains_Delivery" class="text-danger"></span>
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="col">
+                        <label for="inputClaim_Delivery">Claim_Delivery :</label>
+                        <input asp-for="Delivery_performance.Claim_Delivery" class="form-control" />
+                        <span asp-validation-for="Delivery_performance.Claim_Delivery" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label for="inputEmployee">Employee :</label>
+                        <select asp-for="Delivery_performance.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                        <span asp-validation-for="Delivery_performance.EmployeeID" class="text-danger"></span>
+                    </div>
+                </div><br />
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-success ">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div><br />
+</div>
+
+
+@*<h2>EditDelivery</h2>
+
+    <h4>Delivery_performance</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Delivery_performance.Delivery_performanceID" />
+                <div class="form-group">
+                    <label asp-for="Delivery_performance.Complains_Delivery" class="control-label"></label>
+                    <input asp-for="Delivery_performance.Complains_Delivery" class="form-control" />
+                    <span asp-validation-for="Delivery_performance.Complains_Delivery" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Delivery_performance.Claim_Delivery" class="control-label"></label>
+                    <input asp-for="Delivery_performance.Claim_Delivery" class="form-control" />
+                    <span asp-validation-for="Delivery_performance.Claim_Delivery" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Delivery_performance.EmployeeID" class="control-label"></label>
+                    <select asp-for="Delivery_performance.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                    <span asp-validation-for="Delivery_performance.EmployeeID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
